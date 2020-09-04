@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import 'rxjs/add/operator/switchMap';
+
 @Component({
   selector: 'app-error',
   templateUrl: './error.component.html',
@@ -7,10 +8,11 @@ import 'rxjs/add/operator/switchMap';
 })
 export class ErrorComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
-   
+
   }
 
 }
