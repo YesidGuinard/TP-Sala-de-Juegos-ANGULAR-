@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'sexo'
@@ -6,10 +6,11 @@ import {Pipe, PipeTransform} from '@angular/core';
 export class SexoPipe implements PipeTransform {
 
   transform(value: any, args?: any): any {
-    if (value = 'M') {
-      return 'machito';
-    } else {
-      return 'señorita';
+    if(value='M')
+    {
+      return "machito";
+    }else{
+      return "señorita";
     }
   }
 

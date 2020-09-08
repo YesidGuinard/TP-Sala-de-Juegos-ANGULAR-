@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {InputJugadoresComponent} from './input-jugadores.component';
+import { InputJugadoresComponent } from './input-jugadores.component';
 
 describe('InputJugadoresComponent', () => {
   let component: InputJugadoresComponent;
@@ -8,9 +8,9 @@ describe('InputJugadoresComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [InputJugadoresComponent]
+      declarations: [ InputJugadoresComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

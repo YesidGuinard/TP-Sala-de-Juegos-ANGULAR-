@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {AgilidadAritmeticaComponent} from './agilidad-aritmetica.component';
+import { AgilidadAritmeticaComponent } from './agilidad-aritmetica.component';
 
 describe('AgilidadAritmeticaComponent', () => {
   let component: AgilidadAritmeticaComponent;
@@ -8,9 +8,9 @@ describe('AgilidadAritmeticaComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AgilidadAritmeticaComponent]
+      declarations: [ AgilidadAritmeticaComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {
