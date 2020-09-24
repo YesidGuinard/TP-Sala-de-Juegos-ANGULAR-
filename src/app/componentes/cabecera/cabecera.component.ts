@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cabecera',
@@ -8,9 +8,16 @@ import { Router } from '@angular/router';
 })
 export class CabeceraComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  title = 'SuperGames';
+  isAuthenticated: boolean;
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }
 
+  logout() {
+    // this.authService.logout('/');
+  }
 }

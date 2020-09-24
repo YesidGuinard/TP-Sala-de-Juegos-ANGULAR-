@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -7,15 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
- public status: any = {
-    isFirstOpen: true,
-    isFirstDisabled: false
+  public status: any = {
+    isUser: false,
+    isAdmin: false
   };
-  constructor() {  }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
- 
 
 }
