@@ -35,7 +35,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatCardModule} from '@angular/material/card';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {FlexLayoutModule} from '@angular/flex-layout';
+
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {AppRoutingModule} from './app-routing.module';
 import {MatDividerModule} from '@angular/material/divider';
@@ -81,7 +81,7 @@ import {environment} from '../environments/environment';
     MatTableModule,
     MatMenuModule,
     MatCardModule,
-    FlexLayoutModule,
+
     MatButtonToggleModule,
     ReactiveFormsModule,
     AppRoutingModule,
