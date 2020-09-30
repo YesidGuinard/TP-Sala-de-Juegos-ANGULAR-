@@ -19,7 +19,6 @@ import {ErrorComponent} from './components/component/menu-card/error/error.compo
 // declaro donde quiero que se dirija
 const MiRuteo = [
   {path: 'Jugadores', component: JugadoresListadoComponent},
-  {path: 'bienvenido', component: PrincipalComponent},
   {path: '', component: PrincipalComponent},
   {path: 'Login', component: LoginComponent},
   {path: 'QuienSoy', component: QuienSoyComponent},

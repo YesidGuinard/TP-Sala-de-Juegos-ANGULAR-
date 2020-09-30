@@ -8,7 +8,6 @@ import {LoginComponent} from './components/sections/login/login.component';
 import {HttpModule} from '@angular/http';
 
 
-
 import {ErrorComponent} from './components/component/menu-card/error/error.component';
 import {PrincipalComponent} from './components/sections/principal/principal.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -41,6 +40,10 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {AppRoutingModule} from './app-routing.module';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import {AngularFireModule} from '@angular/fire';
+import {AngularFireAuthModule} from '@angular/fire/auth';
+import {environment} from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -84,9 +87,8 @@ import {MatListModule} from '@angular/material/list';
     AppRoutingModule,
     MatDividerModule,
     MatListModule,
-    // NgbModule.forRoot(MiRuteo),
-    // importo el ruteo
-    // RouterModule.forRoot(MiRuteo)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
