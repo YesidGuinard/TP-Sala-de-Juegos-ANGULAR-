@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {FormControl, Validators} from '@angular/forms';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authSvc: AuthService,
-    private route: Router) {
+    private router: Router,
+    public ngZone: NgZone) {
   }
 
   ngOnInit() {
@@ -32,9 +33,13 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
     if (this.emailFormControl.valid && this.passFormControl.valid) {
-      console.log('form submitted');
       this.authSvc.login(this.emailFormControl.value, this.passFormControl.value)
-        .then(() => this.route.navigate(['/Listado']))
+        .then((result) => {
+          this.ngZone.run(() => {
+            this.router.navigate(['Juegos']);
+          });
+          this.authSvc.SetUserData(result.user);
+        })
         .catch(() => Swal.fire(
           'Error!',
           'Credenciales Invalidas!',

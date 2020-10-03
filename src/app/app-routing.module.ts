@@ -13,18 +13,18 @@ import {AdivinaMasListadoComponent} from './components/games/adivina-mas-listado
 import {AgilidadMasListadoComponent} from './components/games/agilidad-mas-listado/agilidad-mas-listado.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
 import {ErrorComponent} from './components/component/menu-card/error/error.component';
-
+import {AuthGuard} from './services/auth.guard';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
-  {path: 'Jugadores', component: JugadoresListadoComponent},
+  {path: 'Jugadores', component: JugadoresListadoComponent, canActivate: [AuthGuard]},
   {path: '', component: PrincipalComponent},
-  {path: 'Login', component: LoginComponent},
+  {path: 'Login', component: LoginComponent, pathMatch: 'full'},
   {path: 'QuienSoy', component: QuienSoyComponent},
   {path: 'Registro', component: RegistroComponent},
   {path: 'Principal', component: PrincipalComponent},
-  {path: 'Listado', component: ListadoComponent},
+  {path: 'Listado', component: ListadoComponent, canActivate: [AuthGuard]},
 
 
   {
@@ -35,7 +35,8 @@ const MiRuteo = [
         {path: 'Adivina', component: AdivinaElNumeroComponent},
         {path: 'AdivinaMasListado', component: AdivinaMasListadoComponent},
         {path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
-        {path: 'Agilidad', component: AgilidadAritmeticaComponent}]
+        {path: 'Agilidad', component: AgilidadAritmeticaComponent}],
+    canActivate: [AuthGuard]
   },
   {path: '**', component: ErrorComponent},
   {path: 'error', component: ErrorComponent}];

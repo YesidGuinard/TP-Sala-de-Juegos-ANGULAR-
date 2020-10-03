@@ -44,6 +44,8 @@ import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuthModule} from '@angular/fire/auth';
 import {environment} from '../environments/environment';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AuthService} from './services/auth.service';
 
 
 @NgModule({
@@ -89,9 +91,10 @@ import {FlexLayoutModule} from '@angular/flex-layout';
     MatDividerModule,
     MatListModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
     AngularFireAuthModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
