@@ -36,7 +36,10 @@ export class LoginComponent implements OnInit {
       this.auth.login(this.emailFormControl.value, this.passFormControl.value)
         .then((result) => {
           this.ngZone.run(() => {
-            this.router.navigate(['Juegos']);
+            setTimeout(() => {
+              this.router.navigate(['Juegos']);
+            }, 0);
+
           });
           this.auth.SetUserData(result.user);
         })

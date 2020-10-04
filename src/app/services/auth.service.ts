@@ -18,10 +18,10 @@ export class AuthService {
       if (user) {
         this.user = user;
         localStorage.setItem('user', JSON.stringify(this.user));
-        JSON.parse(localStorage.getItem('user'));
+   //     JSON.parse(localStorage.getItem('user'));
       } else {
         localStorage.setItem('user', null);
-        JSON.parse(localStorage.getItem('user'));
+     //   JSON.parse(localStorage.getItem('user'));
       }
     });
   }
