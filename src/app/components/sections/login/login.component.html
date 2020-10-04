@@ -1,5 +1,30 @@
 <mat-card>
-  <mat-card-content>
+
+  <mat-card-content  *ngIf="islogged">
+
+    <div class="inner-adjust">
+
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Profile</h1>
+      </div>
+      <!-- Show user data when logged in -->
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body">
+              <h1>Hello: <strong>{{(auth.user.displayName) ? auth.user.displayName : 'User'}}</strong></h1>
+              <p>User ID: <strong>{{auth.user.uid}}</strong></p>
+              <p>Email: <strong>{{auth.user.email}}</strong></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-content *ngIf="!islogged">
 
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
@@ -13,7 +38,7 @@
       </mat-form-field>
       <mat-form-field class="example-full-width">
         <mat-label>Password</mat-label>
-        <input matInput [formControl]="passFormControl" placeholder="Ex. ****" type="password">
+        <input matInput [formControl]="passFormControl" placeholder="Ex. ******" type="password">
         <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
           Please enter a valid password min 6 characters
         </mat-error>
@@ -30,4 +55,7 @@
       <button mat-raised-button color="primary" (click)="onSubmit()">Login</button>
 
   </mat-card-content>
+
+
+
 </mat-card>

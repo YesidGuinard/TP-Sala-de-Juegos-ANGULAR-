@@ -1,27 +1,21 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AppComponent} from './app.component';
 import {AdivinaElNumeroComponent} from './components/games/adivina-el-numero/adivina-el-numero.component';
 import {ListadoDeResultadosComponent} from './components/sections/listado-de-resultados/listado-de-resultados.component';
 import {LoginComponent} from './components/sections/login/login.component';
-import {HttpModule} from '@angular/http';
 
-
-import {ErrorComponent} from './components/component/menu-card/error/error.component';
+import {ErrorComponent} from './components/component/error/error.component';
 import {PrincipalComponent} from './components/sections/principal/principal.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
-
 import {AdivinaMasListadoComponent} from './components/games/adivina-mas-listado/adivina-mas-listado.component';
 import {AgilidadMasListadoComponent} from './components/games/agilidad-mas-listado/agilidad-mas-listado.component';
-
 import {ListadoComponent} from './components/sections/listado/listado.component';
 import {JugadoresListadoComponent} from './components/sections/jugadores-listado/jugadores-listado.component';
-
 import {ListadosComponent} from './components/component/listados/listados.component';
-
 import {RegistroComponent} from './components/sections/registro/registro.component';
-import {MenuCardComponent} from './components/component/menu-card/menu-card.component';
 import {CabeceraComponent} from './components/component/cabecera/cabecera.component';
 import {QuienSoyComponent} from './components/sections/quien-soy/quien-soy.component';
 import {AnagramaComponent} from './components/games/anagrama/anagrama.component';
@@ -34,6 +28,9 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AuthService} from './services/auth.service';
 import {MaterialModule} from './components/component/Material/material.module';
+import { MenuJuegosComponent } from './components/sections/juegos/menu-juegos/menu-juegos.component';
+import {JuegosComponent} from './components/sections/juegos/juegos.component';
+
 
 
 @NgModule({
@@ -52,17 +49,17 @@ import {MaterialModule} from './components/component/Material/material.module';
     ListadosComponent,
 
     RegistroComponent,
-    MenuCardComponent,
+    JuegosComponent,
     CabeceraComponent,
     QuienSoyComponent,
     AnagramaComponent,
-    JugadoresListadoComponent
+    JugadoresListadoComponent,
+    MenuJuegosComponent
 
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule,
     BrowserAnimationsModule,
     FlexLayoutModule,
     ReactiveFormsModule,

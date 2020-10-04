@@ -48,7 +48,7 @@ export class RegistroComponent implements OnInit {
             }, 0);
 
           });
-          this.auth.SetUserData(result.user);
+         // this.auth.SetUserData(result.user);
         })
         .catch(() => Swal.fire(
           'Error!',

@@ -22,7 +22,7 @@
     </mat-form-field>
     <mat-form-field class="example-full-width">
       <mat-label>Password</mat-label>
-      <input matInput [formControl]="passFormControl" placeholder="Ex. ****" type="password">
+      <input matInput [formControl]="passFormControl" placeholder="Ex. ******" type="password">
       <mat-error *ngIf="passFormControl.hasError('minlength') && !passFormControl.hasError('required')">
         Please enter a valid password min 6 characters
       </mat-error>

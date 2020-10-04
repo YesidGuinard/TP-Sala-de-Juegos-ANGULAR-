@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
-// importo del module principal
 import {RouterModule} from '@angular/router';
+
 import {JugadoresListadoComponent} from './components/sections/jugadores-listado/jugadores-listado.component';
 import {PrincipalComponent} from './components/sections/principal/principal.component';
 import {LoginComponent} from './components/sections/login/login.component';
@@ -8,35 +8,31 @@ import {QuienSoyComponent} from './components/sections/quien-soy/quien-soy.compo
 import {RegistroComponent} from './components/sections/registro/registro.component';
 import {ListadoComponent} from './components/sections/listado/listado.component';
 import {AdivinaElNumeroComponent} from './components/games/adivina-el-numero/adivina-el-numero.component';
-import {MenuCardComponent} from './components/component/menu-card/menu-card.component';
+import {JuegosComponent} from './components/sections/juegos/juegos.component';
 import {AdivinaMasListadoComponent} from './components/games/adivina-mas-listado/adivina-mas-listado.component';
 import {AgilidadMasListadoComponent} from './components/games/agilidad-mas-listado/agilidad-mas-listado.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
-import {ErrorComponent} from './components/component/menu-card/error/error.component';
+import {ErrorComponent} from './components/component/error/error.component';
 import {AuthGuard} from './services/auth.guard';
+import {MenuJuegosComponent} from './components/sections/juegos/menu-juegos/menu-juegos.component';
 
 
-// declaro donde quiero que se dirija
+
 const MiRuteo = [
   {path: 'Jugadores', component: JugadoresListadoComponent, canActivate: [AuthGuard]},
   {path: '', component: PrincipalComponent},
-  {path: 'Login', component: LoginComponent, pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
   {path: 'QuienSoy', component: QuienSoyComponent},
   {path: 'Registro', component: RegistroComponent},
   {path: 'Principal', component: PrincipalComponent},
   {path: 'Listado', component: ListadoComponent, canActivate: [AuthGuard]},
-
-
-  {
-    path: 'Juegos',
-    component: MenuCardComponent,
+  {path: 'Juegos',   component: JuegosComponent,  canActivate: [AuthGuard],
     children:
-      [{path: '', component: MenuCardComponent},
+      [ {path: '', component: MenuJuegosComponent},
         {path: 'Adivina', component: AdivinaElNumeroComponent},
         {path: 'AdivinaMasListado', component: AdivinaMasListadoComponent},
         {path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
-        {path: 'Agilidad', component: AgilidadAritmeticaComponent}],
-    canActivate: [AuthGuard]
+        {path: 'Agilidad', component: AgilidadAritmeticaComponent}]
   },
   {path: '**', component: ErrorComponent},
   {path: 'error', component: ErrorComponent}];

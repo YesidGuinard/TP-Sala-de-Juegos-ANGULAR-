@@ -28,7 +28,7 @@ export class CabeceraComponent implements OnInit {
   }
 
   logout() {
-    this.router.navigate(['Login']);
+    this.router.navigate(['login']);
     this.auth.logout();
   }
 }

@@ -11,6 +11,7 @@ import {AuthService} from '../../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  islogged = false;
   emailFormControl = new FormControl('', [
     Validators.required,
     Validators.email,
@@ -24,6 +25,14 @@ export class LoginComponent implements OnInit {
     private auth: AuthService,
     private router: Router,
     public ngZone: NgZone) {
+    auth.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.islogged = true;
+      } else {
+        this.islogged = false;
+      }
+    });
+
   }
 
   ngOnInit() {
@@ -41,7 +50,7 @@ export class LoginComponent implements OnInit {
             }, 0);
 
           });
-          this.auth.SetUserData(result.user);
+          // this.auth.SetUserData(result.user);
         })
         .catch(() => Swal.fire(
           'Error!',

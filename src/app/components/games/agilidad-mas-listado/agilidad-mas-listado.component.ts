@@ -15,6 +15,6 @@ export class AgilidadMasListadoComponent implements OnInit {
   tomarJuegoTerminado(juego: Juego)
   {
     this.listadoParaCompartir.push(juego);
-    console.info("en app",this.listadoParaCompartir);
+    console.log("en app",this.listadoParaCompartir);
   }
 }
