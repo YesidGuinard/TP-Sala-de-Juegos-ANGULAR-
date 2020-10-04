@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {AuthService} from '../../../services/auth.service';
 
 
 @Component({
@@ -7,12 +8,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  public status: any = {
-    isUser: false,
-    isAdmin: false
-  };
+  private isAuthenticated: boolean;
 
-  constructor() {
+  constructor(private auth: AuthService) {
+    auth.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.isAuthenticated = true;
+      } else {
+        this.isAuthenticated = false;
+
+      }
+    });
   }
 
   ngOnInit() {
