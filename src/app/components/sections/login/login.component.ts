@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
   ]);
 
   constructor(
-    private authSvc: AuthService,
+    private auth: AuthService,
     private router: Router,
     public ngZone: NgZone) {
   }
@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit {
   onSubmit() {
 
     if (this.emailFormControl.valid && this.passFormControl.valid) {
-      this.authSvc.login(this.emailFormControl.value, this.passFormControl.value)
+      this.auth.login(this.emailFormControl.value, this.passFormControl.value)
         .then((result) => {
           this.ngZone.run(() => {
             this.router.navigate(['Juegos']);
           });
-          this.authSvc.SetUserData(result.user);
+          this.auth.SetUserData(result.user);
         })
         .catch(() => Swal.fire(
           'Error!',
