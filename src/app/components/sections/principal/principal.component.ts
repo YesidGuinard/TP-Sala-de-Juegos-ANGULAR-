@@ -8,7 +8,7 @@ import {AuthService} from '../../../services/auth.service';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  private isAuthenticated: boolean;
+  isAuthenticated: boolean;
 
   constructor(private auth: AuthService) {
     auth.afAuth.authState.subscribe(user => {

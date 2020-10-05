@@ -7,6 +7,7 @@ body {
 
 p {
   font-size: 16px;
+
 }
 
 .margin {
@@ -43,4 +44,21 @@ p {
 }
 
 
-.overflow-hidden { overflow: hidden; }
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.example-card {
+
+  padding: 60px;
+  max-width: 40%;
+}
+
+.example-header-image {
+  background-image: url("/assets/imagenes/secuencia.jpg");
+  background-size: cover;
+}
+
+.mat-card img{
+  width: 200px;
+}
