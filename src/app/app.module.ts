@@ -12,7 +12,7 @@ import {PrincipalComponent} from './components/sections/principal/principal.comp
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
 import {ListadoComponent} from './components/sections/listado/listado.component';
 import {JugadoresListadoComponent} from './components/sections/jugadores-listado/jugadores-listado.component';
-import {ListadosComponent} from './components/component/listados/listados.component';
+
 import {RegistroComponent} from './components/sections/registro/registro.component';
 import {CabeceraComponent} from './components/component/cabecera/cabecera.component';
 import {QuienSoyComponent} from './components/sections/quien-soy/quien-soy.component';
@@ -47,8 +47,6 @@ import { SecuenciaComponent } from './components/games/secuencia/secuencia.compo
     AgilidadAritmeticaComponent,
 
     ListadoComponent,
-    ListadosComponent,
-
     RegistroComponent,
     JuegosComponent,
     CabeceraComponent,
