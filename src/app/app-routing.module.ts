@@ -9,12 +9,15 @@ import {RegistroComponent} from './components/sections/registro/registro.compone
 import {ListadoComponent} from './components/sections/listado/listado.component';
 import {AdivinaElNumeroComponent} from './components/games/adivina-el-numero/adivina-el-numero.component';
 import {JuegosComponent} from './components/sections/juegos/juegos.component';
-import {AdivinaMasListadoComponent} from './components/games/adivina-mas-listado/adivina-mas-listado.component';
-import {AgilidadMasListadoComponent} from './components/games/agilidad-mas-listado/agilidad-mas-listado.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
 import {ErrorComponent} from './components/component/error/error.component';
 import {AuthGuard} from './services/auth.guard';
 import {MenuJuegosComponent} from './components/sections/juegos/menu-juegos/menu-juegos.component';
+import {AnagramaComponent} from './components/games/anagrama/anagrama.component';
+import {PiedraComponent} from './components/games/piedra/piedra.component';
+import {TatetiComponent} from './components/games/tateti/tateti.component';
+import {SecuenciaComponent} from './components/games/secuencia/secuencia.component';
+
 
 
 
@@ -29,10 +32,14 @@ const MiRuteo = [
   {path: 'Juegos',   component: JuegosComponent,  canActivate: [AuthGuard],
     children:
       [ {path: '', component: MenuJuegosComponent},
+        {path: 'Anagrama', component: AnagramaComponent},
+        {path: 'Piedra', component: PiedraComponent},
+        {path: 'Agilidad', component: AgilidadAritmeticaComponent},
         {path: 'Adivina', component: AdivinaElNumeroComponent},
-        {path: 'AdivinaMasListado', component: AdivinaMasListadoComponent},
-        {path: 'AgilidadaMasListado', component: AgilidadMasListadoComponent},
-        {path: 'Agilidad', component: AgilidadAritmeticaComponent}]
+        {path: 'Tateti', component: TatetiComponent},
+        {path: 'Memotest', component: TatetiComponent},
+        {path: 'Secuencia', component: SecuenciaComponent},
+      ]
   },
   {path: '**', component: ErrorComponent},
   {path: 'error', component: ErrorComponent}];

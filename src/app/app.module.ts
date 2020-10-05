@@ -10,8 +10,6 @@ import {LoginComponent} from './components/sections/login/login.component';
 import {ErrorComponent} from './components/component/error/error.component';
 import {PrincipalComponent} from './components/sections/principal/principal.component';
 import {AgilidadAritmeticaComponent} from './components/games/agilidad-aritmetica/agilidad-aritmetica.component';
-import {AdivinaMasListadoComponent} from './components/games/adivina-mas-listado/adivina-mas-listado.component';
-import {AgilidadMasListadoComponent} from './components/games/agilidad-mas-listado/agilidad-mas-listado.component';
 import {ListadoComponent} from './components/sections/listado/listado.component';
 import {JugadoresListadoComponent} from './components/sections/jugadores-listado/jugadores-listado.component';
 import {ListadosComponent} from './components/component/listados/listados.component';
@@ -31,6 +29,10 @@ import {MaterialModule} from './components/component/Material/material.module';
 import { MenuJuegosComponent } from './components/sections/juegos/menu-juegos/menu-juegos.component';
 import {JuegosComponent} from './components/sections/juegos/juegos.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { PiedraComponent } from './components/games/piedra/piedra.component';
+import { TatetiComponent } from './components/games/tateti/tateti.component';
+import { MemotestComponent } from './components/games/memotest/memotest.component';
+import { SecuenciaComponent } from './components/games/secuencia/secuencia.component';
 
 
 
@@ -44,8 +46,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
     LoginComponent,
     AgilidadAritmeticaComponent,
 
-    AdivinaMasListadoComponent,
-    AgilidadMasListadoComponent,
     ListadoComponent,
     ListadosComponent,
 
@@ -55,7 +55,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
     QuienSoyComponent,
     AnagramaComponent,
     JugadoresListadoComponent,
-    MenuJuegosComponent
+    MenuJuegosComponent,
+    PiedraComponent,
+    TatetiComponent,
+    MemotestComponent,
+    SecuenciaComponent
 
   ],
   imports: [
