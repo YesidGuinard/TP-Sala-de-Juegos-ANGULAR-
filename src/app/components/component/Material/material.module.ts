@@ -12,6 +12,10 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatOptionModule} from '@angular/material/core';
+import {MatTableModule} from '@angular/material/table';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -29,7 +33,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ],
   exports: [
     MatButtonModule,
@@ -43,7 +51,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     MatInputModule,
     MatProgressSpinnerModule,
     MatDividerModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    MatTableModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    MatSelectModule
   ]
 })
 export class MaterialModule {
