@@ -30,6 +30,7 @@ import {AuthService} from './services/auth.service';
 import {MaterialModule} from './components/component/Material/material.module';
 import { MenuJuegosComponent } from './components/sections/juegos/menu-juegos/menu-juegos.component';
 import {JuegosComponent} from './components/sections/juegos/juegos.component';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -67,7 +68,8 @@ import {JuegosComponent} from './components/sections/juegos/juegos.component';
     MaterialModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    MatExpansionModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

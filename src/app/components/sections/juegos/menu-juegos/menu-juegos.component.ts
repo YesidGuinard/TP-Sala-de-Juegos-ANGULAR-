@@ -7,14 +7,19 @@ import {Router} from '@angular/router';
   styleUrls: ['./menu-juegos.component.css']
 })
 export class MenuJuegosComponent implements OnInit {
+  selectedModel: any;
 
-  constructor(    private router: Router,
-                  public ngZone: NgZone) { }
+
+  constructor(private router: Router,
+              public ngZone: NgZone) {
+  }
 
   ngOnInit(): void {
   }
 
-  goToGame(url) {
+  game(url) {
     this.router.navigateByUrl(url);
   }
+
+
 }
