@@ -1,4 +1,7 @@
 <mat-card>
+
+   <h3>Tateti</h3>
+
   <mat-card-content>
     <div [ngClass]="{'tic-tac-toe': true, playing: playing}">
       <div class="game-field" *ngFor="let field of gameState; let i = index" (click)="makeHumanMove(i)">
