@@ -30,6 +30,7 @@ export class ListadoDeResultadosComponent implements OnInit {
   }
 
   filtrarPlayer() {
+
     this.resultados = this.resultadosService.filter((r) => r.idUser === this.auth.user.email);
   }
 
