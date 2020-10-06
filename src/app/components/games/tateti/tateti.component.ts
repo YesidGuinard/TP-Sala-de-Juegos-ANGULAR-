@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import Minimax from 'tic-tac-toe-minimax';
-const { GameStep } = Minimax;
+import {GameService} from '../../../services/game.service';
+import {Resultados} from '../../../clases/resultados';
+import {AuthService} from '../../../services/auth.service';
+
+const {GameStep} = Minimax;
 
 @Component({
   selector: 'app-tateti',
@@ -13,10 +17,13 @@ export class TatetiComponent implements OnInit {
   public playing = false;
   public computerFirst = false;
   public difficulty = 'Normal';
-  constructor() { }
+
+  constructor(private game: GameService, private auth: AuthService) {
+  }
 
   ngOnInit(): void {
   }
+
   toggleGame(toggle: boolean) {
     if (toggle === this.playing) {
       return;
@@ -49,6 +56,13 @@ export class TatetiComponent implements OnInit {
 
     if (result.winner) {
       this.winner = winnerMapping[result.winner];
+      let score = 20;
+      if (this.winner === 'Ganaste') {
+        score = 100;
+      } else if (this.winner === 'Perdiste') {
+        score = 0;
+      }
+      this.game.addResult(new Resultados(this.auth.user.email, 'Tateti', score, this.winner));
       this.playing = false;
     }
   }

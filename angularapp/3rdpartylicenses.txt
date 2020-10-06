@@ -888,6 +888,9 @@ SOFTWARE.
 
 
 
+tic-tac-toe-minimax
+ISC
+
 tslib
 0BSD
 Copyright (c) Microsoft Corporation.

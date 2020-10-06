@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Resultados} from '../../../clases/resultados';
 import {AuthService} from '../../../services/auth.service';
+import {GameService} from '../../../services/game.service';
 
 @Component({
   selector: 'app-listado-de-resultados',
@@ -9,11 +10,11 @@ import {AuthService} from '../../../services/auth.service';
 })
 export class ListadoDeResultadosComponent implements OnInit {
 
-  displayedColumns: string[] = ['jugador', 'juego', 'score','resultado', 'playedAt'];
+  displayedColumns: string[] = ['juego', 'score', 'resultado', 'playedAt'];
   resultados: Resultados[] = [];
   resultadosService: Resultados[] = [];
 
-  constructor(private auth: AuthService) {
+  constructor(private games: GameService, private auth: AuthService) {
   }
 
   ngOnInit() {
@@ -21,7 +22,7 @@ export class ListadoDeResultadosComponent implements OnInit {
   }
 
   TraerTodos() {
-    this.auth.getResults()
+    this.games.getResults()
       .then(result => {
         this.resultadosService = result;
         this.filtrarPlayer();
@@ -29,7 +30,6 @@ export class ListadoDeResultadosComponent implements OnInit {
   }
 
   filtrarPlayer() {
-
     this.resultados = this.resultadosService.filter((r) => r.idUser === this.auth.user.email);
   }
 

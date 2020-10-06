@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from '../../../services/auth.service';
 import {Jugador} from '../../../clases/jugador';
+import {GamersService} from '../../../services/gamers.service';
 
 
 @Component({
@@ -13,7 +14,7 @@ export class JugadoresListadoComponent implements OnInit {
   jugadores: Jugador[] = [];
   jugadoresService: Jugador[] = [];
 
-  constructor(private auth: AuthService) {
+  constructor(private gamer: GamersService) {
 
   }
 
@@ -22,7 +23,7 @@ export class JugadoresListadoComponent implements OnInit {
   }
 
   TraerTodos() {
-    this.auth.getUsers()
+    this.gamer.getGamers()
       .then(result => {
         this.jugadoresService = result;
         this.jugadores = this.jugadoresService;

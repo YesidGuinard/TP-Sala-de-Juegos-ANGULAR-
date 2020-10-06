@@ -33,6 +33,8 @@ import { PiedraComponent } from './components/games/piedra/piedra.component';
 import { TatetiComponent } from './components/games/tateti/tateti.component';
 import { MemotestComponent } from './components/games/memotest/memotest.component';
 import { SecuenciaComponent } from './components/games/secuencia/secuencia.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -69,7 +71,9 @@ import { SecuenciaComponent } from './components/games/secuencia/secuencia.compo
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatCheckboxModule,
+    MatRadioModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

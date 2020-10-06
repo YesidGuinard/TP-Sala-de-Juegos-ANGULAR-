@@ -3,6 +3,8 @@ import {FormControl, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
+import {GamersService} from '../../../services/gamers.service';
+import {Jugador} from '../../../clases/jugador';
 
 @Component({
   selector: 'app-registro',
@@ -26,11 +28,21 @@ export class RegistroComponent implements OnInit {
     Validators.maxLength(10)
   ]);
 
+  islogged: boolean;
+
   constructor(
     private auth: AuthService,
     private router: Router,
     public ngZone: NgZone,
-    private firebaseService: AuthService) {
+    private gamersService: GamersService) {
+
+    auth.afAuth.authState.subscribe(user => {
+      if (user) {
+        this.islogged = true;
+      } else {
+        this.islogged = false;
+      }
+    });
   }
 
   ngOnInit() {
@@ -45,7 +57,7 @@ export class RegistroComponent implements OnInit {
         .then((result) => {
           this.ngZone.run(() => {
             setTimeout(() => {
-              this.firebaseService.addUser(this.emailFormControl.value, this.nameFormControl.value);
+              this.gamersService.addGamer(new Jugador(this.nameFormControl.value, this.emailFormControl.value, 0));
               this.router.navigate(['Juegos']);
             }, 0);
 

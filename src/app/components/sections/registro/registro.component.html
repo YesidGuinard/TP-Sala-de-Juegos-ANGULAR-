@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-content>
+  <mat-card-content *ngIf="!islogged">
     <mat-form-field class="example-full-width">
       <mat-label>Name</mat-label>
       <input matInput [formControl]="nameFormControl" placeholder="Ex. Yesid">
@@ -34,6 +34,30 @@
 
 
     <button mat-raised-button color="primary" (click)="onSubmit()">Registrarse</button>
+
+  </mat-card-content>
+
+  <mat-card-content  *ngIf="islogged">
+
+    <div class="inner-adjust">
+
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Profile</h1>
+      </div>
+      <!-- Show user data when logged in -->
+      <div class="row" >
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body">
+              <h1>Hello: <strong>{{( auth.user.displayName) ? auth.user.displayName : 'Gamer!'}}</strong></h1>
+              <p>User ID: <strong>{{auth.user.uid}}</strong></p>
+              <p>Email: <strong>{{auth.user.email}}</strong></p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </mat-card-content>
 </mat-card>
