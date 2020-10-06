@@ -14,6 +14,6 @@ export class QuienSoyComponent implements OnInit {
   }
 
   JugarSecuencia() {
-    this.router.navigate(['Juegos/Adivina']);
+    this.router.navigate(['Juegos/Secuencia']);
   }
 }

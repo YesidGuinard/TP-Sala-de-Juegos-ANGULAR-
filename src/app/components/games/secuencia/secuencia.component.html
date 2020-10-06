@@ -1,1 +1,26 @@
-<p>secuencia works!</p>
+<mat-card>
+
+  <h3>Secuencia</h3>
+
+  <mat-card-content>
+    <div [ngClass]="{'tic-tac-toe': true, playing: playing}">
+      <div class="game-field" *ngFor="let field of gameState; let i = index" (click)="makeHumanMove(i)">
+        {{field === 'X' || field === 'O' ? field : ''}}
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+  <mat-card-content>
+    <div *ngIf="playing">
+      <h3>Tu Turno</h3>
+    </div>
+    <div *ngIf="!playing">
+      <h3>{{winner || "Empezar"}}</h3>
+    </div>
+    <button mat-raised-button color="primary" *ngIf="!playing" (click)="toggleGame(true)">Start</button>
+    <button mat-raised-button color="primary" *ngIf="playing" (click)="toggleGame(false)">Reset</button>
+
+
+  </mat-card-content>
+</mat-card>

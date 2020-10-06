@@ -1,29 +1,43 @@
-<ul class="nav nav-pills nav-justified">
-  <li class="active"><a routerLink="/Principal">Ir a inicio</a></li>
-  <li><a (click)="TraerTodos()">Todos los jugadores</a></li>
-  <li><a (click)="TraerGanadores()">Los ganadores</a></li>
-  <li><a (click)="TraerPerdedores()">Los perdedores</a></li>
-</ul>
+<mat-toolbar>
+  <mat-button-toggle-group>
+    <mat-button-toggle (click)="TraerTodos()">Todos los jugadores</mat-button-toggle>
+    <mat-button-toggle (click)="TraerPerdedores()">Perdedores</mat-button-toggle>
+    <mat-button-toggle (click)="TraerGanadores()">Ganadores</mat-button-toggle>
+  </mat-button-toggle-group>
+
+</mat-toolbar>
+
+<table mat-table [dataSource]="jugadores" class="mat-elevation-z8">
 
 
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
 
-<table class="table table-condensed">
-  <thead>
-    <tr>
-      <th>usuario</th>
-      <th>cuit</th>
-      <th>sexo</th>
-      <th>gano</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let jugador of listado" >
-      <td>{{jugador.usuario}} </td>
-      <td>{{jugador.cuit}} </td> 
-      <td>{{jugador.sexo | sexo| uppercase}} </td> 
-      <td>{{jugador.gano}} </td> 
-      
-    </tr>
-   
-  </tbody>
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element"> {{element.mail}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef>Score</th>
+    <td mat-cell *matCellDef="let element"> {{element.score}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="f_alta">
+    <th mat-header-cell *matHeaderCellDef> F.Alta</th>
+    <td mat-cell *matCellDef="let element"> {{element.createdAt}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
+

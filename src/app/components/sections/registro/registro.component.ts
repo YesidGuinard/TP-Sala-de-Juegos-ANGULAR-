@@ -1,5 +1,5 @@
 import {Component, NgZone, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormControl, Validators} from '@angular/forms';
 import {AuthService} from '../../../services/auth.service';
 import {Router} from '@angular/router';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
@@ -29,7 +29,8 @@ export class RegistroComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private router: Router,
-    public ngZone: NgZone) {
+    public ngZone: NgZone,
+    private firebaseService: AuthService) {
   }
 
   ngOnInit() {
@@ -44,11 +45,12 @@ export class RegistroComponent implements OnInit {
         .then((result) => {
           this.ngZone.run(() => {
             setTimeout(() => {
-             this.router.navigate(['Juegos']);
+              this.firebaseService.addUser(this.emailFormControl.value, this.nameFormControl.value);
+              this.router.navigate(['Juegos']);
             }, 0);
 
           });
-         // this.auth.SetUserData(result.user);
+          // this.auth.SetUserData(result.user);
         })
         .catch(() => Swal.fire(
           'Error!',

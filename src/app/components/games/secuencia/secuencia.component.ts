@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-secuencia',
@@ -6,10 +6,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secuencia.component.css']
 })
 export class SecuenciaComponent implements OnInit {
+  playing: any;
+  gameState: any;
+  winner: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  makeHumanMove(i: number) {
+
+  }
+
+  toggleGame(b: boolean) {
+
+  }
 }
