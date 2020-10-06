@@ -1,57 +1,36 @@
-<!--div *ngFor="let juego of listado">
+<mat-toolbar>
+  <mat-label>Mis Resultados</mat-label>
 
-<p> {{juego.nombre}} </p>
-<p> {{juego.jugador}} </p>
+</mat-toolbar>
 
-</div-->
+<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
 
-<!--
-<table class="table table-condensed">
-    <thead>
-      <tr>
-        <th>Juego</th>
-        <th>Jugador</th>
-        <th>Resultado</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let juego of listado">
-        <td>{{juego.nombre}} </td>
-        <td>{{juego.jugador}} </td>
-        <td *ngIf="juego.gano">Gano </td>
-        <td *ngIf="!juego.gano">Perdio</td>
-      </tr>
 
-    </tbody>
-  </table>-->
-
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
-  <!--- Note that these columns can be defined in any order.
-        The actual rendered columns are set as a property on the row definition" -->
-
-  <!-- Position Column -->
-  <ng-container matColumnDef="position">
-    <th mat-header-cell *matHeaderCellDef> No. </th>
-    <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+  <ng-container matColumnDef="jugador">
+    <th mat-header-cell *matHeaderCellDef> Jugador</th>
+    <td mat-cell *matCellDef="let element"> {{element.idUser}} </td>
   </ng-container>
 
   <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Name </th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  <ng-container matColumnDef="juego">
+    <th mat-header-cell *matHeaderCellDef> Juego</th>
+    <td mat-cell *matCellDef="let element"> {{element.juego}} </td>
   </ng-container>
 
   <!-- Weight Column -->
-  <ng-container matColumnDef="weight">
-    <th mat-header-cell *matHeaderCellDef> Weight </th>
-    <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+  <ng-container matColumnDef="score">
+    <th mat-header-cell *matHeaderCellDef> Score</th>
+    <td mat-cell *matCellDef="let element"> {{element.score}} </td>
   </ng-container>
 
+  <ng-container matColumnDef="resultado">
+    <th mat-header-cell *matHeaderCellDef> Resultado</th>
+    <td mat-cell *matCellDef="let element"> {{element.resultado}} </td>
+  </ng-container>
   <!-- Symbol Column -->
-  <ng-container matColumnDef="symbol">
-    <th mat-header-cell *matHeaderCellDef> Symbol </th>
-    <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+  <ng-container matColumnDef="playedAt">
+    <th mat-header-cell *matHeaderCellDef> Fecha Partida</th>
+    <td mat-cell *matCellDef="let element"> {{element.playedAt}} </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

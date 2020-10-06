@@ -86,6 +86,6 @@ export class AuthService {
     const id = this.afs.createId();
     return this.afs.collection('/results').doc(id).set(result);
   }
-
+// aqui se debe intentar recuperar el score del user para acumularle nuevo score
 
 }

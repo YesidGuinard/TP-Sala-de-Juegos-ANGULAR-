@@ -17,6 +17,7 @@ import {AnagramaComponent} from './components/games/anagrama/anagrama.component'
 import {PiedraComponent} from './components/games/piedra/piedra.component';
 import {TatetiComponent} from './components/games/tateti/tateti.component';
 import {SecuenciaComponent} from './components/games/secuencia/secuencia.component';
+import {ListadoDeResultadosComponent} from './components/sections/listado-de-resultados/listado-de-resultados.component';
 
 
 
@@ -28,7 +29,7 @@ const MiRuteo = [
   {path: 'QuienSoy', component: QuienSoyComponent},
   {path: 'Registro', component: RegistroComponent},
   {path: 'Principal', component: PrincipalComponent},
-  {path: 'Listado', component: ListadoComponent, canActivate: [AuthGuard]},
+  {path: 'Listado', component: ListadoDeResultadosComponent, canActivate: [AuthGuard]},
   {path: 'Juegos',   component: JuegosComponent,  canActivate: [AuthGuard],
     children:
       [ {path: '', component: MenuJuegosComponent},
