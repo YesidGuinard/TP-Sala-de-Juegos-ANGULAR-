@@ -1,5 +1,5 @@
 
-<span *ngIf="(status$ | async) === status.READY">Ready</span>
-<span *ngIf="(status$ | async) === status.PLAYING">Playing</span>
+<span *ngIf="(status$ | async) === status.READY">Puedes Empezar</span>
+<span *ngIf="(status$ | async) === status.PLAYING">Encuentra La Pareja!</span>
 <span class="hand" *ngIf="(status$ | async) === status.PASS" (click)="reset($event)">Play again</span>
 <span class="elapsed">{{ elapsedMs$ | async }} s</span>
