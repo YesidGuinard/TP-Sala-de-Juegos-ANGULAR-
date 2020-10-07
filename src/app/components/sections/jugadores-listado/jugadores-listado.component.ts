@@ -10,7 +10,7 @@ import {GamersService} from '../../../services/gamers.service';
   styleUrls: ['./jugadores-listado.component.css']
 })
 export class JugadoresListadoComponent implements OnInit {
-  displayedColumns: string[] = ['idUser', 'name', 'email', 'score', 'f_alta'];
+  displayedColumns: string[] = ['idUser', 'name', 'email', 'f_alta'];
   jugadores: Jugador[] = [];
   jugadoresService: Jugador[] = [];
 

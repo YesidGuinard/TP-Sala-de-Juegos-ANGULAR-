@@ -1,16 +1,16 @@
 export class JuegoAnagrama {
   static palabrasDic = [
     'TORO',
-    'PINO',
+    'DIFICIL',
     'LUNA',
     'ROPA',
     'ROCA',
-    'CASA',
+    'CASAS',
     'RANA',
-    'PATO',
+    'PROGRAMACION',
     'TINA',
     'POZO',
-    'COSA',
+    'LABORATORIO',
     'JUGO',
     'SOPA',
     'GATO'
@@ -47,7 +47,7 @@ export class JuegoAnagrama {
 
 
   obternerPalabraDelDic(): string {
-    return JuegoAnagrama.palabrasDic[this.getnumberRnd(0, 13)];
+    return JuegoAnagrama.palabrasDic[this.getnumberRnd(0, 12)];
 
   }
 
