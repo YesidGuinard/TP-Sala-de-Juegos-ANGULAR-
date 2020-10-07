@@ -15,18 +15,18 @@ export class AuthService {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
-        localStorage.setItem('userTPyg', JSON.stringify(this.user));
-         this.userMail = JSON.parse(localStorage.getItem('userTPyg'));
+        localStorage.setItem('user', JSON.stringify(this.user));
+         this.userMail = JSON.parse(localStorage.getItem('user'));
         this.userMail = this.userMail['email'];
       } else {
-        localStorage.setItem('userTPyg', null);
+        localStorage.setItem('user', null);
         //   JSON.parse(localStorage.getItem('user'));
       }
     });
   }
 
   get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('userTPyg'));
+    const user = JSON.parse(localStorage.getItem('user'));
     return (user !== null) ? true : false;
   }
 
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   async logout() {
-    localStorage.removeItem('userTPyg');
+    localStorage.removeItem('user');
     return await this.afAuth.signOut();
   }
 

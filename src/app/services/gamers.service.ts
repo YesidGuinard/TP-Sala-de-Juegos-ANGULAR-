@@ -12,7 +12,14 @@ export class GamersService {
 
   addGamer(jugador: Jugador) {
     const id = this.afs.createId();
-    return this.afs.collection('/users').doc(id).set(jugador);
+    const result = {
+      idUser: jugador.id,
+      name: jugador.name,
+      mail: jugador.mail,
+      createdAt: jugador.createdAt,
+      score: jugador.score,
+    };
+    return this.afs.collection('/users').doc(id).set(result);
   }
 
   getGamers() {
@@ -23,9 +30,5 @@ export class GamersService {
     });
   }
 
-/*  async getGamerLogged() {
-    let gamerRef = this.afs.collection('/users').doc('/gtCVByEwjSy1ywzI39OT').get();
-    console.log(gamerRef);
 
-  }*/
 }
