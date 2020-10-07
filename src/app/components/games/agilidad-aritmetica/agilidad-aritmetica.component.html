@@ -1,25 +1,60 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<!--app-menu></app-menu-->
-<!-- index.html -->
+<mat-card>
+
+  <h3>Agilidad Arimetica</h3>
+
+  <mat-card-content *ngIf="jugando">
+
+    <mat-chip-list >
+      <mat-chip>{{nuevoJuego.numeroUno}}</mat-chip>
+      <mat-chip color="primary" >{{nuevoJuego.operador}}</mat-chip>
+      <mat-chip>{{nuevoJuego.numeroDos}}</mat-chip>
+    </mat-chip-list>
+
+<br>
+    <input  [(ngModel)]="respuesta" type="number" placeholder=0 style="text-align: right">
+
+  </mat-card-content>
+</mat-card>
 
 
-<form name="juego">
+<mat-card>
+  <h3 *ngIf="finalizado">{{resultado}}</h3>
+
+  <mat-card-content>
+    <button mat-raised-button color="primary" *ngIf="!jugando" (click)="NuevoJuego()">Nuevo Juego</button>
+    <button mat-raised-button color="primary" *ngIf="jugando" (click)="verificar()">Verificar {{Tiempo}}</button>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+<!--<div class="game-container" >
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+
+    <mat-divider></mat-divider>
+    <mat-form-field class="example-full-width">
+      <mat-label>Answer</mat-label>
+      <input matInput [(ngModel)]="respuesta" name="inputNumber">
+    </mat-form-field>
+    <button (click)="verificar()" mat-raised-button color="accent" >Verify {{Tiempo}}</button>
+    <button (click)="NuevoJuego()" mat-raised-button color="accent" >Nuevo</button>
+  </form>
+</div>-->
+<!--
 <ul>
    <li>
-   Primer número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-  
+     Primer número: <mat-label [(ngModel)]="nuevoJuego.numeroUno" > </mat-label>
   </li>
   <li>
-   Operador: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
+    Operador: <mat-label [(ngModel)]="nuevoJuego.operador" > </mat-label>
   </li>
   <li>
-   Segundo número: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%" readonly/>
-    
+    Segundo número: <mat-label [(ngModel)]="nuevoJuego.numeroUno" > </mat-label>
   </li>
   <li>
-    Respuesta: <input [(ngModel)]="nuevoJuego.numeroIngresado" placeholder="ingrese numero" name="numeroIngresado" type="text" class="form-control" style="width:50%"/>
-     
+     Respuesta: <input matInput [(ngModel)]="respuesta" placeholder="ingrese numero"  type="text"/>
    </li>
   <li>
     <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
@@ -33,6 +68,6 @@
     <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
     <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
   </li>
-</ul>
+</ul>-->
 
-</form>
+

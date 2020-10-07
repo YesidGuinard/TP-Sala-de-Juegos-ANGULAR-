@@ -35,6 +35,7 @@ import { MemotestComponent } from './components/games/memotest/memotest.componen
 import { SecuenciaComponent } from './components/games/secuencia/secuencia.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
+import {MatChipsModule} from '@angular/material/chips';
 
 
 
@@ -60,21 +61,22 @@ import {MatRadioModule} from '@angular/material/radio';
     SecuenciaComponent
 
   ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    FlexLayoutModule,
-    ReactiveFormsModule,
-    AppRoutingModule,
-    MaterialModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule,
-    AngularFireAuthModule,
-    MatExpansionModule,
-    MatCheckboxModule,
-    MatRadioModule
-  ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        FlexLayoutModule,
+        ReactiveFormsModule,
+        AppRoutingModule,
+        MaterialModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFirestoreModule,
+        AngularFireAuthModule,
+        MatExpansionModule,
+        MatCheckboxModule,
+        MatRadioModule,
+        MatChipsModule
+    ],
   providers: [AuthService],
   bootstrap: [AppComponent]
 })

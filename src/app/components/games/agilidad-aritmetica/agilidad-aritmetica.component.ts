@@ -1,51 +1,66 @@
-import { Component, OnInit ,Input,Output,EventEmitter} from '@angular/core';
-import { JuegoAgilidad } from '../../../clases/juego-agilidad'
+import {Component, OnInit} from '@angular/core';
 
-import {Subscription} from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import {JuegoAgilidad} from '../../../clases/juego-agilidad';
+import {Resultados} from '../../../clases/resultados';
+import {GameService} from '../../../services/game.service';
+import {AuthService} from '../../../services/auth.service';
+
 @Component({
   selector: 'app-agilidad-aritmetica',
   templateUrl: './agilidad-aritmetica.component.html',
   styleUrls: ['./agilidad-aritmetica.component.css']
 })
 export class AgilidadAritmeticaComponent implements OnInit {
-   @Output()
-  enviarJuego :EventEmitter<any>= new EventEmitter<any>();
-  nuevoJuego : JuegoAgilidad;
-  ocultarVerificar: boolean;
+
+  nuevoJuego: JuegoAgilidad;
+
   Tiempo: number;
-  repetidor:any;
-  private subscription: Subscription;
+  repetidor: any;
+  respuesta: number;
+  jugando: boolean;
+  finalizado: boolean;
+  resultado: string;
+
+  constructor(private game: GameService, private auth: AuthService) {
+    this.jugando = false;
+    this.Tiempo = 5;
+
+  }
+
   ngOnInit() {
   }
-   constructor() {
-     this.ocultarVerificar=true;
-     this.Tiempo=5;
-    this.nuevoJuego = new JuegoAgilidad();
-    console.log("Inicio agilidad");
-  }
-  NuevoJuego() {
-    this.ocultarVerificar=false;
-   this.repetidor = setInterval(()=>{
 
+  NuevoJuego() {
+    this.finalizado = false;
+    this.nuevoJuego = new JuegoAgilidad();
+    this.jugando = true;
+    this.repetidor = setInterval(() => {
       this.Tiempo--;
-      console.log("llego", this.Tiempo);
-      if(this.Tiempo==0 ) {
+
+      if (this.Tiempo === 0) {
         clearInterval(this.repetidor);
         this.verificar();
-        this.ocultarVerificar=true;
-        this.Tiempo=5;
+        this.jugando = false;
+        this.Tiempo = 5;
       }
-      }, 900);
+    }, 900);
 
   }
-  verificar()
-  {
-    this.ocultarVerificar=false;
+
+  verificar() {
+
     clearInterval(this.repetidor);
-
-
-
+    if (this.nuevoJuego.getSiGano(this.respuesta)) {
+      this.resultado = 'Ganaste';
+      this.game.addResult(new Resultados(this.auth.user.email, 'Agilidad', 100, this.resultado));
+    } else {
+      this.resultado = 'Perdiste';
+      this.game.addResult(new Resultados(this.auth.user.email, 'Agilidad', 100, this.resultado));
+    }
+    this.finalizado = true;
+    this.jugando = false;
+    this.respuesta = 0;
+    this.Tiempo = 5;
   }
 
 }
