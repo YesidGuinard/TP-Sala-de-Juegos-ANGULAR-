@@ -15,7 +15,7 @@ export class ListadoDeResultadosComponent implements OnInit {
   resultadosService: Resultados[] = [];
   resultadosFiltrados: Resultados[] = [];
 
-  constructor(private games: GameService, private auth: AuthService) {
+  constructor(private games: GameService, public auth: AuthService) {
   }
 
   ngOnInit() {
