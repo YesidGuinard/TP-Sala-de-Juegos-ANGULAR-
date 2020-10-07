@@ -55,7 +55,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
       this.game.addResult(new Resultados(this.auth.user.email, 'Agilidad', 100, this.resultado));
     } else {
       this.resultado = 'Perdiste';
-      this.game.addResult(new Resultados(this.auth.user.email, 'Agilidad', 100, this.resultado));
+      this.game.addResult(new Resultados(this.auth.user.email, 'Agilidad', 0, this.resultado));
     }
     this.finalizado = true;
     this.jugando = false;

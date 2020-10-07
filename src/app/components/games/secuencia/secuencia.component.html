@@ -1,26 +1,31 @@
 <mat-card>
 
-  <h3>Secuencia</h3>
+  <h3>Secuencia Logica</h3>
 
-  <mat-card-content>
-    <div [ngClass]="{'tic-tac-toe': true, playing: playing}">
-      <div class="game-field" *ngFor="let field of gameState; let i = index" (click)="makeHumanMove(i)">
-        {{field === 'X' || field === 'O' ? field : ''}}
-      </div>
-    </div>
+  <mat-card-content >
+
+    <mat-chip-list >
+
+    <h3>{{serieStr}}</h3>
+
+
+    </mat-chip-list>
+
+    <br>
+    <input  [(ngModel)]="respuesta" type="number" placeholder=0 style="text-align: right">
+
   </mat-card-content>
 </mat-card>
+
+
 <mat-card>
+  <h3 *ngIf="finalizado">{{resultado}}</h3>
+  <h4 *ngIf="finalizado">Respuesta: {{nuevoJuego.resultadoEsperado}}</h4>
+  <h5 *ngIf="finalizado">Ecuacion: {{explicacion}}</h5>
   <mat-card-content>
-    <div *ngIf="playing">
-      <h3>Tu Turno</h3>
-    </div>
-    <div *ngIf="!playing">
-      <h3>{{winner || "Empezar"}}</h3>
-    </div>
-    <button mat-raised-button color="primary" *ngIf="!playing" (click)="toggleGame(true)">Start</button>
-    <button mat-raised-button color="primary" *ngIf="playing" (click)="toggleGame(false)">Reset</button>
-
-
+    <button mat-raised-button color="primary" *ngIf="!jugando" (click)="NuevoJuego()">Nuevo Juego</button>
+    <button mat-raised-button color="primary" *ngIf="jugando" (click)="verificar()">Verificar {{Tiempo}}</button>
   </mat-card-content>
 </mat-card>
+
+

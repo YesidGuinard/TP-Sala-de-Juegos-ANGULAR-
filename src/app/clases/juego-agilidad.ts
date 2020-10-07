@@ -16,7 +16,7 @@ export class JuegoAgilidad {
     this.operador = this.operadores[this.operadorIndex];
     this.resultadoEsperado = this.getResultadoEsperado();
     this.gano = false;
-    console.log(this);
+   // console.log(this);
   }
 
 
