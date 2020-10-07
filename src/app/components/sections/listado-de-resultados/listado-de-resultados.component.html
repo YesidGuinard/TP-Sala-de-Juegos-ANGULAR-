@@ -1,8 +1,21 @@
 <mat-toolbar>
-<!--  <mat-label>Mis Resultados: {{auth.user.email}}</mat-label>-->
+  <mat-label>Mis Resultados: {{auth.userMail}}</mat-label>
+</mat-toolbar>
+<mat-toolbar>
+  <mat-button-toggle-group>
+    <mat-button-toggle (click)="filtrar('')">Todos</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Agilidad')">Agilidad</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('PPT')">PPT</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Adivina')">Adivina</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Secuencia')">Secuencia</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Anagrama')">Anagrama</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Tateti')">Tateti</mat-button-toggle>
+    <mat-button-toggle (click)="filtrar('Memotest')">Memotest</mat-button-toggle>
+  </mat-button-toggle-group>
+
 </mat-toolbar>
 
-<table mat-table [dataSource]="resultados" class="mat-elevation-z8">
+<table mat-table [dataSource]="resultadosFiltrados" class="mat-elevation-z8">
 
 
 <!--  <ng-container matColumnDef="jugador">

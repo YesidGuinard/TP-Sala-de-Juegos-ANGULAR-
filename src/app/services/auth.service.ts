@@ -7,6 +7,7 @@ import {AngularFireAuth} from '@angular/fire/auth';
 })
 export class AuthService {
   user: User;
+  userMail: any;
 
   constructor(
     public afAuth: AngularFireAuth
@@ -15,7 +16,8 @@ export class AuthService {
       if (user) {
         this.user = user;
         localStorage.setItem('userTPyg', JSON.stringify(this.user));
-        //     JSON.parse(localStorage.getItem('user'));
+         this.userMail = JSON.parse(localStorage.getItem('userTPyg'));
+        this.userMail = this.userMail['email'];
       } else {
         localStorage.setItem('userTPyg', null);
         //   JSON.parse(localStorage.getItem('user'));
@@ -40,8 +42,6 @@ export class AuthService {
     localStorage.removeItem('userTPyg');
     return await this.afAuth.signOut();
   }
-
-
 
 
 // aqui se debe intentar recuperar el score del user para acumularle nuevo score

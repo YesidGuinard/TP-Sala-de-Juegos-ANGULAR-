@@ -13,12 +13,15 @@ export class ListadoDeResultadosComponent implements OnInit {
   displayedColumns: string[] = ['juego', 'score', 'resultado', 'playedAt'];
   resultados: Resultados[] = [];
   resultadosService: Resultados[] = [];
+  resultadosFiltrados: Resultados[] = [];
 
   constructor(private games: GameService, private auth: AuthService) {
   }
 
   ngOnInit() {
-    this.TraerTodos();
+    setTimeout(() => {
+      this.TraerTodos();
+    }, 50);
   }
 
   TraerTodos() {
@@ -30,9 +33,16 @@ export class ListadoDeResultadosComponent implements OnInit {
   }
 
   filtrarPlayer() {
-
-    this.resultados = this.resultadosService.filter((r) => r.idUser === this.auth.user.email);
+    this.resultados = this.resultadosService.filter((r) => r.idUser === this.auth.userMail);
+    this.filtrar('');
   }
 
 
+  filtrar(s: string) {
+    if (s !== '') {
+      this.resultadosFiltrados = this.resultados.filter((r => r.juego === s));
+    } else {
+      this.resultadosFiltrados = this.resultados;
+    }
+  }
 }
