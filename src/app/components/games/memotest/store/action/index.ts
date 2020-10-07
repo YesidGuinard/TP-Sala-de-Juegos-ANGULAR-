@@ -17,8 +17,9 @@ export class GameActions {
   static UPDATE_ELAPSED = 'UPDATE_ELAPSED';
   static UPDATE_HIGHESTSPEED = 'UPDATE_HIGHESTSPEED';
   private timerId: any;
+  private resultado: string = '';
 
-  constructor(private ngRedux: NgRedux<IState>,private game: GameService, private auth: AuthService) {
+  constructor(private ngRedux: NgRedux<IState>, private gameService: GameService, private auth: AuthService) {
   }
 
   reset(): void {
@@ -36,7 +37,7 @@ export class GameActions {
       }, 1000);
     } else if (status === STATUS.PASS) {
       this.resultado = 'Ganaste';
-      this.game.addResult(new Resultados(this.auth.user.email, 'Memotest', 300, this.resultado));
+      this.gameService.addResult(new Resultados(this.auth.user.email, 'Memotest', 300, this.resultado));
       clearInterval(this.timerId);
       this.ngRedux.dispatch({
         type: GameActions.UPDATE_HIGHESTSPEED,
