@@ -36,7 +36,7 @@ export class SecuenciaComponent implements OnInit {
     this.finalizado = false;
     this.serieStr = '';
     this.nuevoJuego = new Secuencia();
-    console.log('Respuesta esperada: ' + this.nuevoJuego.resultadoEsperado);
+   // console.log('Respuesta esperada: ' + this.nuevoJuego.resultadoEsperado);
     this.serieStr = this.nuevoJuego.serie[0].toString();
     for (let i = 1; i < this.nuevoJuego.serie.length - 1; i++) {
       this.serieStr = this.serieStr + ', ' + this.nuevoJuego.serie[i];
