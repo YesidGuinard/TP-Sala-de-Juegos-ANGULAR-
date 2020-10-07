@@ -4,7 +4,7 @@
 
   <mat-card-content *ngIf="jugando">
 
-    <mat-chip-list >
+    <mat-chip-list>
       <mat-chip>{{nuevoJuego.numeroUno}}</mat-chip>
       <mat-chip color="primary" >{{nuevoJuego.operador}}</mat-chip>
       <mat-chip>{{nuevoJuego.numeroDos}}</mat-chip>
@@ -26,48 +26,5 @@
   </mat-card-content>
 </mat-card>
 
-
-
-
-<!--<div class="game-container" >
-  <form class="example-form">
-    <mat-form-field class="example-full-width">
-
-    <mat-divider></mat-divider>
-    <mat-form-field class="example-full-width">
-      <mat-label>Answer</mat-label>
-      <input matInput [(ngModel)]="respuesta" name="inputNumber">
-    </mat-form-field>
-    <button (click)="verificar()" mat-raised-button color="accent" >Verify {{Tiempo}}</button>
-    <button (click)="NuevoJuego()" mat-raised-button color="accent" >Nuevo</button>
-  </form>
-</div>-->
-<!--
-<ul>
-   <li>
-     Primer número: <mat-label [(ngModel)]="nuevoJuego.numeroUno" > </mat-label>
-  </li>
-  <li>
-    Operador: <mat-label [(ngModel)]="nuevoJuego.operador" > </mat-label>
-  </li>
-  <li>
-    Segundo número: <mat-label [(ngModel)]="nuevoJuego.numeroUno" > </mat-label>
-  </li>
-  <li>
-     Respuesta: <input matInput [(ngModel)]="respuesta" placeholder="ingrese numero"  type="text"/>
-   </li>
-  <li>
-    <h2 [hidden]="ocultarVerificar" ><button (click)="verificar()" class="btn btn-success btn-lg">Verificar {{Tiempo}} </button></h2>
-  </li>
-  <li>
-    <h2 [hidden]="!ocultarVerificar"><button  (click)="NuevoJuego()"  class="btn btn-info btn-lg">Nuevo</button></h2>
-  </li>
-  <li>
-    <h2><p><i class="fa fa-spinner fa-spin"></i>Esperando numero...</p></h2>
-
-    <h3 [hidden]="!nuevoJuego.gano">usted adivino el número</h3>
-    <h3 [hidden]="nuevoJuego.gano">usted aún no gano </h3>
-  </li>
-</ul>-->
 
 

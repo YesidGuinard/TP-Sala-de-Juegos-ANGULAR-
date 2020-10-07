@@ -53,7 +53,7 @@ export class SecuenciaComponent implements OnInit {
         this.jugando = false;
         this.Tiempo = 15;
       }
-    }, 900);
+    }, 1000);
 
   }
 
@@ -66,7 +66,7 @@ export class SecuenciaComponent implements OnInit {
     } else {
       this.resultado = 'Perdiste';
       this.explicacion = '( n * ' + this.nuevoJuego.incremento + ') ' + this.nuevoJuego.operador + ' ' + this.nuevoJuego.offset;
-      this.explicacion += ' Donde n es la ultima posicion, n = ' + this.nuevoJuego.serie.length;
+      this.explicacion += ' Donde n es la ultima posicion, n = ' + (this.nuevoJuego.serie.length - 1);
       this.game.addResult(new Resultados(this.auth.user.email, 'Secuencia', 0, this.resultado));
     }
     this.finalizado = true;

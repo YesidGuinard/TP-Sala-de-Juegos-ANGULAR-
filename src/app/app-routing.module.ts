@@ -19,6 +19,7 @@ import {TatetiComponent} from './components/games/tateti/tateti.component';
 import {SecuenciaComponent} from './components/games/secuencia/secuencia.component';
 import {ListadoDeResultadosComponent} from './components/sections/listado-de-resultados/listado-de-resultados.component';
 import {GuardService} from './services/guard.service';
+import {MemotestComponent} from './components/games/memotest/memotest.component';
 
 
 
@@ -39,7 +40,7 @@ const MiRuteo = [
         {path: 'Agilidad', component: AgilidadAritmeticaComponent},
         {path: 'Adivina', component: AdivinaElNumeroComponent},
         {path: 'Tateti', component: TatetiComponent},
-        {path: 'Memotest', component: TatetiComponent},
+        {path: 'Memotest', component: MemotestComponent},
         {path: 'Secuencia', component: SecuenciaComponent},
       ]
   },

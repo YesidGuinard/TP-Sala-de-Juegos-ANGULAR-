@@ -43,7 +43,7 @@ export class AgilidadAritmeticaComponent implements OnInit {
         this.jugando = false;
         this.Tiempo = 5;
       }
-    }, 900);
+    }, 1000);
 
   }
 

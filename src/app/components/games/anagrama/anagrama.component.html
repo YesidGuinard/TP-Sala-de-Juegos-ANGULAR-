@@ -1,3 +1,29 @@
-<p>
-  anagrama works!
-</p>
+<mat-card>
+
+  <h3>Anagrama</h3>
+
+  <mat-card-content *ngIf="jugando">
+
+    <mat-chip-list>
+      <mat-chip>{{nuevoJuego.palabraDesOr}}</mat-chip>
+    </mat-chip-list>
+
+    <br>
+    <input [(ngModel)]="respuesta" type="text"  style="text-align: right">
+
+  </mat-card-content>
+</mat-card>
+
+
+<mat-card>
+  <h3 *ngIf="finalizado">{{resultado}}</h3>
+  <h5 *ngIf="finalizado && !nuevoJuego.gano" >Rta: {{nuevoJuego.resultadoEsperado}}</h5>
+  <mat-card-content>
+    <button mat-raised-button color="primary" *ngIf="!jugando" (click)="NuevoJuego()">Nuevo Juego</button>
+    <button mat-raised-button color="primary" *ngIf="jugando" (click)="verificar()">Verificar {{Tiempo}}</button>
+  </mat-card-content>
+</mat-card>
+
+
+
+
