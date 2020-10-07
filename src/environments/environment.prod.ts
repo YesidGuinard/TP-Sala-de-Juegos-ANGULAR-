@@ -8,5 +8,6 @@ export const environment = {
     storageBucket: 'tp1sala.appspot.com',
     messagingSenderId: '712659516975',
     appId: '1:712659516975:web:da208d0f1fe27f42a990da'
-  }
+  },
+  deployUrl: '/'
 };

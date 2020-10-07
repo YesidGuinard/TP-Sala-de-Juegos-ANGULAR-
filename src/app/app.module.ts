@@ -31,11 +31,20 @@ import {JuegosComponent} from './components/sections/juegos/juegos.component';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { PiedraComponent } from './components/games/piedra/piedra.component';
 import { TatetiComponent } from './components/games/tateti/tateti.component';
-import { MemotestComponent } from './components/games/memotest/memotest.component';
+
 import { SecuenciaComponent } from './components/games/secuencia/secuencia.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatChipsModule} from '@angular/material/chips';
+import {MemoryComponent} from './components/games/memotest/memory.component';
+import {DashboardComponent} from './components/games/memotest/dashboard/dashboard.component';
+import {LogoComponent} from './components/games/memotest/dashboard/logo.component';
+import {InfoComponent} from './components/games/memotest/dashboard/info.component';
+import {ChessboardComponent} from './components/games/memotest/chessboard/chessboard.component';
+import {CardComponent} from './components/games/memotest/chessboard/card.component';
+import {StatusComponent} from './components/games/memotest/status/status.component';
+import {ReduxConfigModule} from './components/games/memotest/store';
+import {GameActions} from './components/games/memotest/store/action';
 
 
 
@@ -57,8 +66,14 @@ import {MatChipsModule} from '@angular/material/chips';
     MenuJuegosComponent,
     PiedraComponent,
     TatetiComponent,
-    MemotestComponent,
-    SecuenciaComponent
+    MemoryComponent,
+    SecuenciaComponent,
+    DashboardComponent,
+    LogoComponent,
+    InfoComponent,
+    ChessboardComponent,
+    CardComponent,
+    StatusComponent
 
   ],
     imports: [
@@ -75,9 +90,10 @@ import {MatChipsModule} from '@angular/material/chips';
         MatExpansionModule,
         MatCheckboxModule,
         MatRadioModule,
+        ReduxConfigModule,
         MatChipsModule
     ],
-  providers: [AuthService],
+  providers: [AuthService, GameActions],
   bootstrap: [AppComponent]
 })
 export class AppModule {
