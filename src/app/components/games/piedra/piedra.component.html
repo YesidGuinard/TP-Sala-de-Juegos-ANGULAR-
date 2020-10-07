@@ -1,1 +1,45 @@
-<p>piedra works!</p>
+<mat-card>
+  <h3>Piedra, Papel o Tijera</h3>
+</mat-card>
+
+<div class="content">
+
+
+  <mat-card>
+    <mat-card-title>
+      <h3>Piedra, Papel o Tijera</h3>
+    </mat-card-title>
+    <mat-card-content>
+
+      <h3> Elige: </h3>
+      <div class="content2">
+        <i (click)="pick(0)" [ngClass]="{'selectedWeapon':(playerSelected === 0)}" class="fa fa-hand-rock-o"></i>
+        <i (click)="pick(1)" [ngClass]="{'selectedWeapon':(playerSelected === 1)}" class="fa fa-hand-paper-o"></i>
+        <i (click)="pick(2)" [ngClass]="{'selectedWeapon':(playerSelected === 2)}" class="fa fa-hand-scissors-o"></i>
+      </div>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-content>
+      <div class="content1">
+        <h2> Maquina</h2>
+
+      </div>
+      <br><br>
+
+      <div *ngIf="enemySelected !== -1" class="flex-container flex-center">
+        <i *ngIf="enemySelected === 0" class="fa fa-hand-rock-o"></i>
+        <i *ngIf="enemySelected === 1" class="fa fa-hand-paper-o"></i>
+        <i *ngIf="enemySelected === 2" class="fa fa-hand-scissors-o"></i>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+</div>
+
+<mat-card>
+  <h3 *ngIf="finalizado">{{resultado}}</h3>
+
+</mat-card>
+
+

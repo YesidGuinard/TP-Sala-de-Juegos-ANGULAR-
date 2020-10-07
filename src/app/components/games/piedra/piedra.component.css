@@ -1,0 +1,85 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.tic-tac-toe {
+  width: 192px;
+  display: flex;
+  flex-wrap:  wrap;
+}
+
+.game-field {
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  background-color: #f0f0f0;
+  line-height: 48px;
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.playing .game-field {
+  cursor: pointer;
+}
+
+button, mat-slide-toggle {
+  margin-bottom: 2rem;
+}
+
+p {
+  font-family: Lato;
+}
+
+.content{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2em;
+}
+.flex-container{
+  display:flex;
+  width:100%;
+}
+
+.flex-center{
+  align-items: center;
+  justify-content: center;
+}
+/* mat-card-content{
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+} */
+
+.content1{
+
+  display:grid;
+  grid-template-columns: 2fr 1fr;
+}
+
+.score{
+  margin-top:.5em;
+  margin-left:2em;
+  font-size:0.5em
+}
+
+.content2{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.fa{
+  cursor:pointer;
+  font-size:5em;
+}
+
+.selectedWeapon{
+  color: background;
+}
