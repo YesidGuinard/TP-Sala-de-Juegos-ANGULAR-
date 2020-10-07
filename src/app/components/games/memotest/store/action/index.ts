@@ -3,6 +3,9 @@ import {NgRedux} from '@angular-redux/store';
 
 import {isEmpty} from '../../helper/object';
 import {ICard, IState, STATUS} from '../interface';
+import {Resultados} from '../../../../../clases/resultados';
+import {GameService} from '../../../../../services/game.service';
+import {AuthService} from '../../../../../services/auth.service';
 
 @Injectable()
 export class GameActions {
@@ -15,7 +18,7 @@ export class GameActions {
   static UPDATE_HIGHESTSPEED = 'UPDATE_HIGHESTSPEED';
   private timerId: any;
 
-  constructor(private ngRedux: NgRedux<IState>) {
+  constructor(private ngRedux: NgRedux<IState>,private game: GameService, private auth: AuthService) {
   }
 
   reset(): void {
@@ -32,6 +35,8 @@ export class GameActions {
         });
       }, 1000);
     } else if (status === STATUS.PASS) {
+      this.resultado = 'Ganaste';
+      this.game.addResult(new Resultados(this.auth.user.email, 'Memotest', 300, this.resultado));
       clearInterval(this.timerId);
       this.ngRedux.dispatch({
         type: GameActions.UPDATE_HIGHESTSPEED,
