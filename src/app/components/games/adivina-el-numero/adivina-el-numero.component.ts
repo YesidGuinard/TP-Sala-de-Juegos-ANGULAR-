@@ -1,5 +1,8 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {JuegoAdivina} from '../../../clases/juego-adivina';
+import {Resultados} from '../../../clases/resultados';
+import {GameService} from '../../../services/game.service';
+import {AuthService} from '../../../services/auth.service';
 
 @Component({
   selector: 'app-adivina-el-numero',
@@ -7,86 +10,54 @@ import {JuegoAdivina} from '../../../clases/juego-adivina';
   styleUrls: ['./adivina-el-numero.component.css']
 })
 export class AdivinaElNumeroComponent implements OnInit {
-  @Output() enviarJuego: EventEmitter<any> = new EventEmitter<any>();
 
+  respuesta: number;
+  jugando: boolean;
+  finalizado: boolean;
+  resultado: string;
   nuevoJuego: JuegoAdivina;
-  Mensajes: string;
   contador: number;
-  ocultarVerificar: boolean;
 
-  constructor() {
+
+  constructor(private game: GameService, private auth: AuthService) {
+  }
+
+  NuevoJuego() {
+    this.contador = 10;
+    this.finalizado = false;
     this.nuevoJuego = new JuegoAdivina();
-    console.log('numero Secreto:', this.nuevoJuego.numeroSecreto);
-    this.ocultarVerificar = false;
+    this.jugando = true;
+    this.resultado = null;
   }
 
-  generarnumero() {
-    this.nuevoJuego.generarnumero();
-    this.contador = 0;
-  }
 
   verificar() {
-    this.contador++;
-    this.ocultarVerificar = true;
-    console.log('numero Secreto:', this.nuevoJuego.gano);
-    if (this.nuevoJuego.verificar()) {
 
-      this.enviarJuego.emit(this.nuevoJuego);
-      this.MostarMensaje('Sos un Genio!!!', true);
-      this.nuevoJuego.numeroSecreto = 0;
+    if (this.contador > 0) {
 
-    } else {
-
-      let mensaje: string;
-      switch (this.contador) {
-        case 1:
-          mensaje = 'No, intento fallido, animo';
-          break;
-        case 2:
-          mensaje = 'No,Te estaras Acercando???';
-          break;
-        case 3:
-          mensaje = 'No es, Yo crei que la tercera era la vencida.';
-          break;
-        case 4:
-          mensaje = 'No era el  ' + this.nuevoJuego.numeroIngresado;
-          break;
-        case 5:
-          mensaje = ' intentos y nada.';
-          break;
-        case 6:
-          mensaje = 'Afortunado en el amor';
-          break;
-
-        default:
-          mensaje = 'Ya le erraste ' + this.contador + ' veces';
-          break;
+      if (this.nuevoJuego.verificar(this.respuesta)) {
+        this.resultado = 'Ganaste';
+        this.jugando = false;
+        this.game.addResult(new Resultados(this.auth.user.email, 'Adivina', this.contador * 10, this.resultado));
+      } else {
+        this.jugando = true;
+        this.resultado = this.nuevoJuego.retornarAyuda(this.respuesta);
       }
-      this.MostarMensaje('#' + this.contador + ' ' + mensaje + ' ayuda :' + this.nuevoJuego.retornarAyuda());
 
-
-    }
-    console.log('numero Secreto:', this.nuevoJuego.gano);
-  }
-
-  MostarMensaje(mensaje: string = 'este es el mensaje', ganador: boolean = false) {
-    this.Mensajes = mensaje;
-    var x = document.getElementById('snackbar');
-    if (ganador) {
-      x.className = 'show Ganador';
     } else {
-      x.className = 'show Perdedor';
+      this.resultado = 'Perdiste';
+      this.game.addResult(new Resultados(this.auth.user.email, 'Adivina', 0, this.resultado));
+      this.finalizado = true;
+      this.jugando = false;
     }
-    var modelo = this;
-    setTimeout(function () {
-      x.className = x.className.replace('show', '');
-      modelo.ocultarVerificar = false;
-    }, 3000);
-    console.log('objeto', x);
-
+    this.contador--;
   }
+
 
   ngOnInit() {
   }
 
+  limpiar() {
+    this.resultado = null;
+  }
 }
